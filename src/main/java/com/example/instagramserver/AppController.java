@@ -8,6 +8,6 @@ public class AppController {
 
     @GetMapping("/")
     public String home() {
-        return "Hi, Github";
+        return "Hi, Github Action! 수정 => 자동갱신?";
     }
 }
