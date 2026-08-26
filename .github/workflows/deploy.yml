@@ -22,6 +22,8 @@ jobs:
           script: |
             cd /home/ec2-user/insta # 여기 경로는 자신의 EC2에 맞는 경로로 재작성하기
             rm -rf src/main/resources/application.yaml
+            git fetch origin
+            gut reset --hard origin/main
             git pull origin main
             echo "$APPLICATION_PROPERTIES" > src/main/resources/application.yaml
             ./gradlew clean build
