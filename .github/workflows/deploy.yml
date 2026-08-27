@@ -56,11 +56,11 @@ jobs:
 
       # 8. Docker 이미지 생성
       - name: Docker 이미지 생성
-        run: docker build -t instagram-server .
+        run: docker build -t insta .
 
       # 9. Docker 이미지에 ECR Repository 주소 Tag 붙이기
       - name: Docker 이미지에 Tag 붙이기
-        run: docker tag instagram-server ${{ steps.login-ecr.outputs.registry }}/instagram-server:latest
+        run: docker tag insta ${{ steps.login-ecr.outputs.registry }}/insta:latest
 
       # 10. Docker 이미지를 ECR에 Push
       - name: ECR에 Docker 이미지 Push하기
@@ -76,16 +76,16 @@ jobs:
           script_stop: true
           script: |
             # 기존 컨테이너 중지
-            docker stop instagram-server || true
+            docker stop insta || true
 
             # 기존 컨테이너 삭제
-            docker rm instagram-server || true
+            docker rm insta || true
 
             # ECR에서 최신 Docker 이미지 다운로드
-            docker pull ${{ steps.login-ecr.outputs.registry }}/instagram-server:latest
+            docker pull ${{ steps.login-ecr.outputs.registry }}/iinsta:latest
 
             # 최신 이미지로 새로운 컨테이너 실행
             docker run -d \
-              --name instagram-server \
+              --name insta \
               -p 8080:8080 \
-              ${{ steps.login-ecr.outputs.registry }}/instagram-server:latest
+              ${{ steps.login-ecr.outputs.registry }}/insta:latest
