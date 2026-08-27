@@ -56,7 +56,7 @@ jobs:
 
       # 8. Docker 이미지 생성
       - name: Docker 이미지 생성
-        run: docker build -t insta .
+        run: docker build -t instagram-server .
 
       # 9. Docker 이미지에 ECR Repository 주소 Tag 붙이기
       - name: Docker 이미지에 Tag 붙이기
