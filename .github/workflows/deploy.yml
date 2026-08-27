@@ -23,7 +23,9 @@ jobs:
 
       # 3. Github Secrets의 내용을 application.yml로 생성
       - name: application.yml 파일 만들기
-        run: echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./src/main/resources/application.yml
+        run: |
+          mkdir -p ./src/main/resources
+          echo "${{ secrets.APPLICATION_PROPERTIES }}" > ./src/main/resources/application.yaml
 
       # 4. gradlew 실행 권한 부여
       - name: gradlew 실행 권한 부여
