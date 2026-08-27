@@ -48,6 +48,12 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v2
 
+      - name: Check Dockerfile
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -type f -name "Dockerfile"
+
       # 8. Docker 이미지 생성
       - name: Docker 이미지 생성
         run: docker build -t instagram-server .
