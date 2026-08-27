@@ -82,7 +82,7 @@ jobs:
             docker rm insta || true
 
             # ECR에서 최신 Docker 이미지 다운로드
-            docker pull ${{ steps.login-ecr.outputs.registry }}/iinsta:latest
+            docker pull ${{ steps.login-ecr.outputs.registry }}/insta:latest
 
             # 최신 이미지로 새로운 컨테이너 실행
             docker run -d \
