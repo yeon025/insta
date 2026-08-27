@@ -8,6 +8,6 @@ public class AppController {
 
     @GetMapping("/")
     public String home() {
-        return "Hi, yml 파일 숨기기";
+        return "Hi, CICD!";
     }
 }
